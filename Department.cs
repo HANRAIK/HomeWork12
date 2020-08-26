@@ -28,9 +28,9 @@ namespace HomeWork12
             DepartmentId = departmentId;
         }
 
-        public override string ToString()
-        {
-            return $"{DepartmentName,15} {DepartmentId,3}";
-        }
+        //public override string ToString()
+        //{
+        //    return $"{DepartmentName,15} {DepartmentId,3}";
+        //}
     }
 }

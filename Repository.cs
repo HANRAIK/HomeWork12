@@ -37,12 +37,12 @@ namespace HomeWork12
 
             for (int i = 0; i < countEmployee; i++)
             {
-                EmployeeDb.Add(new Employee($"Surname_{i + 1}", $"Name_{i + 1}", 20 + i, i + 1)); 
+                EmployeeDb.Add(new Employee($"Surname_{i + 1}", $"Name_{i + 1}", r.Next(18, 30), r.Next(DepartmentDb.Count)+1));
             }
 
         }
 
-        public static Repository CreateRepository (int countDepartment = 10, int countEmployee = 10)
+        public static Repository CreateRepository (int countDepartment = 10, int countEmployee = 100)
         {
             return new Repository(countDepartment, countEmployee); 
         }

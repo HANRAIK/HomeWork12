@@ -44,7 +44,9 @@ namespace HomeWork12
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            cbDepartment.Items.Refresh(); 
+            //cbDepartment.Items.Refresh(); 
+            data.EmployeeDb.Remove(lvEmployee.SelectedItem as Employee);
+            lvEmployee.Items.Refresh();
 
         }
     }
