@@ -36,7 +36,8 @@
             <TextBox Margin="10 0 10 30" Text="{Binding ElementName=lvEmployee, Path=SelectedItem.Name}"/>
             <Button x:Name="btnRefresh" Margin="10 20 10 5" Content="Обновить" Click="btnRefresh_Click"/>
             <Button x:Name="btnDelEmp" Margin="10 20" Content="Удалить" Click="btnDelEmp_Click"/>
-            <Button x:Name="btnSort" Margin="10 0" Content="Сортировка"/>
+            <Button x:Name="btnSortAge" Margin="10 20" Content="Сортировка по возрасту" Click="btnSort_Click"/>
+            <Button x:Name="btnSortName" Margin="10 0" Content="Сортировка по имени" Click="btnSortName_Click"/>
         </StackPanel>
 
     </Grid>

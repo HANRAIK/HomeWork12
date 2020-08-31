@@ -33,13 +33,20 @@ namespace HomeWork12
 
         private void cbDepartment_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            RefreshLV();
+        }
+
+        /// <summary>
+        /// Обновление ListView
+        /// </summary>
+        private void RefreshLV()
+        {
             lvEmployee.ItemsSource = data.EmployeeDb.Where(find);
         }
 
         private bool find(Employee arg)
         {
             return arg.DepartmentId == (cbDepartment.SelectedItem as Department).DepartmentId;
-
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
@@ -47,11 +54,34 @@ namespace HomeWork12
             cbDepartment.Items.Refresh(); 
         }
 
+        /// <summary>
+        /// Удаляем выделенного сотрудника в ListView
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDelEmp_Click(object sender, RoutedEventArgs e)
         {
             int index = data.EmployeeDb.IndexOf(lvEmployee.SelectedItem as Employee);
             data.EmployeeDb.RemoveAt(index);
-            lvEmployee.ItemsSource = data.EmployeeDb.Where(find);
+            RefreshLV();
+        }
+
+        /// <summary>
+        /// Сортируем сотрудников
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnSort_Click(object sender, RoutedEventArgs e)
+        {
+            AgeComparer ac = new AgeComparer();
+            data.EmployeeDb.Sort(ac);
+            RefreshLV();
+        }
+
+        private void btnSortName_Click(object sender, RoutedEventArgs e)
+        {
+            data.EmployeeDb.Sort();
+            RefreshLV();
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HomeWork12
 {
-    class Employee
+    class Employee  : IComparable<Employee>
     {
         /// <summary>
         ///  Фамилия сотрудника
@@ -70,6 +70,17 @@ namespace HomeWork12
         {
             return $"{Name,7} {Age,3} {DepartmentId,3}";
         }
+
+        /// <summary>
+        /// Правила сортировки 
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public int CompareTo(Employee p)
+        {
+            return this.Name.CompareTo(p.Name);
+        }
+
 
 
         /// <summary>
