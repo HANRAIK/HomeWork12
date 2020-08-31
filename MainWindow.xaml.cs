@@ -42,12 +42,16 @@ namespace HomeWork12
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            //cbDepartment.Items.Refresh(); 
-            data.EmployeeDb.Remove(lvEmployee.SelectedItem as Employee);
-            lvEmployee.Items.Refresh();
+            cbDepartment.Items.Refresh(); 
+        }
 
+        private void btnDelEmp_Click(object sender, RoutedEventArgs e)
+        {
+            int index = data.EmployeeDb.IndexOf(lvEmployee.SelectedItem as Employee);
+            data.EmployeeDb.RemoveAt(index);
+            lvEmployee.ItemsSource = data.EmployeeDb.Where(find);
         }
     }
 }
